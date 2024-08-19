@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="wellspring">
+	<schema id="com.mikeasoft.wellspring" path="/com/mikeasoft/wellspring/">
+	</schema>
+</schemalist>

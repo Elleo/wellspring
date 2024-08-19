@@ -1,0 +1,87 @@
+using Gtk 4.0;
+using Adw 1;
+using WebKit 6.0;
+
+template $WellspringWindow : Gtk.ApplicationWindow {
+  default-width: 900;
+  default-height: 600;
+  title: _("Wellspring");
+
+  titlebar: Adw.HeaderBar {
+
+    [end]
+    MenuButton {
+      icon-name: "open-menu-symbolic";
+      tooltip-text: _("Main Menu");
+      primary: true;
+      menu-model: window_menu;
+    }
+
+    [end]
+    Button {
+      icon-name: "edit-find-symbolic";
+    }
+  };
+
+  Adw.OverlaySplitView split_view {
+
+    sidebar:  Adw.StatusPage {
+        title: _("Sidebar");
+     };
+
+    content: Box {
+    orientation: vertical;
+
+    WebKit.WebView web_view {
+      zoom-level: bind zoom.value;
+      vexpand: true;
+      hexpand: true;
+      user-content-manager: WebKit.UserContentManager content_manager {};
+
+      styles [
+        "view"
+      ]
+    }
+
+    [bottom]
+    ActionBar action_bar {
+      revealed: true;
+      valign: end;
+
+      [end]
+      Box {
+        orientation: horizontal;
+
+        Gtk.ScaleButton zoom {
+          tooltip-text: "Zoom";
+
+          styles [
+            "flat",
+          ]
+
+          adjustment: Gtk.Adjustment {
+            lower: 0.5;
+            upper: 3;
+            value: 1;
+            page-increment: 0.05;
+          };
+        }
+      }
+    }
+  }
+  }
+}
+
+menu window_menu {
+  section {
+    item {
+      label: _("Open...");
+      action: "app.open";
+    }
+
+    item {
+      label: _("About Wellspring");
+      action: "app.about";
+    }
+  }
+}

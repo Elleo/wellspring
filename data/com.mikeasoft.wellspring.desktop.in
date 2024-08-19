@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=wellspring
+Exec=wellspring
+Icon=com.mikeasoft.wellspring
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

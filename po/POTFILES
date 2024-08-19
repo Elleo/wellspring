@@ -1,0 +1,7 @@
+data/com.mikeasoft.wellspring.desktop.in
+data/com.mikeasoft.wellspring.appdata.xml.in
+data/com.mikeasoft.wellspring.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+
